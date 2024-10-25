@@ -1,5 +1,5 @@
 #include "main.h"
-#include <stdio>
+#include <stdio.h>
 
 /**
  * print_alphabet_x10 - Affiche l'alphabet en minuscules dix fois.

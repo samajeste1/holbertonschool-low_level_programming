@@ -12,5 +12,5 @@ int main(void)
 	_putchar ('s');
 	_putchar ('w');
 	_putchar ('\n');
-        return (0);
+	return (0);
 }

@@ -11,5 +11,6 @@ int main(void)
 	_putchar ('p');
 	_putchar ('s');
 	_putchar ('w');
-	return (0);
+	_putchar ('\n');
+        return (0);
 }

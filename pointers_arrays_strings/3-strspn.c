@@ -1,34 +1,31 @@
 #include "main.h"
 
 /**
- * _strspn - Calcule la longueur du préfixe contenant uniquement des caractères acceptés
- * @s: chaîne principale
- * @accept: chaîne contenant les caractères acceptés
+ * _strspn - gets the length of a prefix substring
+ *           consisting only of bytes from accept
+ * @s: string to be searched
+ * @accept: string containing the characters to match
  *
- * Return: longueur du préfixe valide
+ * Return: number of bytes in the initial segment of s
+ *         which consist only of bytes from accept
  */
 unsigned int _strspn(char *s, char *accept)
 {
-	unsigned int i, j, count = 0;
+	unsigned int i, j, k;
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		int found = 0;
-
+		k = 1;
 		for (j = 0; accept[j] != '\0'; j++)
 		{
 			if (s[i] == accept[j])
 			{
-				found = 1;
+				k = 0;
 				break;
 			}
 		}
-
-		if (!found)
+		if (k)
 			break;
-
-		count++;
 	}
-
-	return (count);
+	return (i);
 }

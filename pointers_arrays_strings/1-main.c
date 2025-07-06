@@ -1,21 +1,29 @@
 #include "main.h"
 #include <stdio.h>
 
+void simple_print_buffer(char *buffer, unsigned int size)
+{
+    unsigned int i;
+
+    for (i = 0; i < size; i++)
+    {
+        if (i % 10)
+            printf(" ");
+        if (!(i % 10) && i)
+            printf("\n");
+        printf("0x%02x", buffer[i]);
+    }
+    printf("\n");
+}
+
 int main(void)
 {
-	char s1[98] = "Hello ";
-	char s2[] = "World!\n";
-	char *ptr;
+    char buffer[98] = {0};
+    char buffer2[] = "Holberton!";
 
-	printf("%s\n", s1);
-	printf("%s", s2);
-	ptr = _strncat(s1, s2, 1);
-	printf("%s\n", s1);
-	printf("%s", s2);
-	printf("%s\n", ptr);
-	ptr = _strncat(s1, s2, 1024);
-	printf("%s", s1);
-	printf("%s", s2);
-	printf("%s", ptr);
-	return (0);
+    simple_print_buffer(buffer, 98);
+    _memcpy(buffer + 50, buffer2, 10);
+    printf("-------------------------------------------------\n");
+    simple_print_buffer(buffer, 98);    
+    return (0);
 }

@@ -1,13 +1,20 @@
 #include "main.h"
-#include <stdio.h>
 
+/**
+ * main - check the code for rev_string
+ *
+ * Return: Always 0.
+ */
 int main(void)
 {
-    char *s = "hello, world";
-    char *f = "world";
-    char *t;
+	char s[] = "Hello";
 
-    t = _strstr(s, f);
-    printf("%s\n", t);
-    return (0);
+	rev_string(s);
+	_putchar(s[0]);
+	_putchar(s[1]);
+	_putchar(s[2]);
+	_putchar(s[3]);
+	_putchar(s[4]);
+	_putchar('\n');
+	return (0);
 }

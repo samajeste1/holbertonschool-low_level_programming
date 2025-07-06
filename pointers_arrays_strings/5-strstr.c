@@ -1,23 +1,33 @@
 #include "main.h"
 
+/**
+ * _strstr - Localise une sous-chaîne dans une chaîne
+ * @haystack: chaîne principale
+ * @needle: sous-chaîne à rechercher
+ *
+ * Return: pointeur vers le début de la sous-chaîne ou NULL
+ */
 char *_strstr(char *haystack, char *needle)
 {
-    while (*haystack)
-    {
-        char *h = haystack;
-        char *n = needle;
+	if (*needle == '\0')
+		return (haystack);
 
-        while (*h && *n && *h == *n)
-        {
-            h++;
-            n++;
-        }
+	while (*haystack)
+	{
+		char *h = haystack;
+		char *n = needle;
 
-        if (!*n)
-            return (haystack);
+		while (*h && *n && (*h == *n))
+		{
+			h++;
+			n++;
+		}
 
-        haystack++;
-    }
+		if (*n == '\0')
+			return (haystack);
 
-    return (0);
+		haystack++;
+	}
+
+	return (0);
 }

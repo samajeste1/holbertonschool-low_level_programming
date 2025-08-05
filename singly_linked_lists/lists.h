@@ -1,10 +1,10 @@
 #ifndef LISTS_H
 #define LISTS_H
 
-#include <stddef.h> // pour size_t
+#include <stddef.h> 
 #include <stdlib.h>
-#include <string.h> // pour strdup
-#include <stdio.h>  // pour printf
+#include <string.h> 
+#include <stdio.h>
 
 /**
  * struct list_s - singly linked list

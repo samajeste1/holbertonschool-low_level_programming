@@ -1,12 +1,12 @@
-#include <stdio.h>     /* pour printf */
-#include <stddef.h>    /* pour size_t */
-#include "lists.h"     /* pour la définition de list_t */
+#include <stdio.h>
+#include <stddef.h>
+#include "lists.h"
 
 /**
- * print_list - Affiche tous les éléments d'une liste list_t
- * @h: pointeur vers le premier élément (tête) de la liste
+ * print_list - prints all the elements of a list_t list
+ * @h: pointer to the list
  *
- * Return: nombre d’éléments dans la liste
+ * Return: the number of nodes
  */
 size_t print_list(const list_t *h)
 {
@@ -18,9 +18,8 @@ size_t print_list(const list_t *h)
 			printf("[0] (nil)\n");
 		else
 			printf("[%u] %s\n", h->len, h->str);
-		h = h->next;
 		count++;
+		h = h->next;
 	}
-
 	return (count);
 }

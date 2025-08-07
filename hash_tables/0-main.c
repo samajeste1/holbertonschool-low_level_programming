@@ -4,7 +4,7 @@
 #include "hash_tables.h"
 
 /**
- * main - check the code for
+ * main - check the code for hash_table_create
  *
  * Return: Always EXIT_SUCCESS.
  */

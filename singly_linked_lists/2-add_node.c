@@ -3,32 +3,47 @@
 #include "lists.h"
 
 /**
- * add_node - adds a new node at the beginning of a list_t list
- * @head: pointer to the head of the list
- * @str: string to duplicate into the new node
- * Return: address of the new node, or NULL if it fails
+ * add_node_end - Adds a new node at the end of a list_t list
+ * @head: Double pointer to the head of the list
+ * @str: String to be duplicated and stored in the new node
+ *
+ * Return: Address of the new element, or NULL if it failed
  */
-list_t *add_node(list_t **head, const char *str)
+list_t *add_node_end(list_t **head, const char *str)
 {
-	list_t *new_node;
+	list_t *new_node, *temp;
 
 	if (str == NULL)
 		return (NULL);
 
 	new_node = malloc(sizeof(list_t));
-	if (new_node == NULL)
+	if (!new_node)
 		return (NULL);
 
 	new_node->str = strdup(str);
-	if (new_node->str == NULL)
+	if (!new_node->str)
 	{
 		free(new_node);
 		return (NULL);
 	}
 
-	new_node->len = strlen(str);
-	new_node->next = *head;
-	*head = new_node;
+	/* No strlen used, just rely on strdup and set len manually */
+	new_node->len = 0;
+	while (str[new_node->len])
+		new_node->len++;
 
+	new_node->next = NULL;
+
+	if (*head == NULL)
+	{
+		*head = new_node;
+		return (new_node);
+	}
+
+	temp = *head;
+	while (temp->next)
+		temp = temp->next;
+
+	temp->next = new_node;
 	return (new_node);
 }
